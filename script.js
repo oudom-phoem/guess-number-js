@@ -41,9 +41,7 @@ document.querySelector('.check').addEventListener('click', function () {
 
     // When user guess is outside the valid range
     if (guessNumber < MIN_NUMBER || guessNumber > MAX_NUMBER) {
-      displayMessage(
-        `🚫 Invalid guess! Please enter a number between ${MIN_NUMBER} and ${MAX_NUMBER}.`
-      );
+      displayMessage(`🚫 Invalid! Enter (${MIN_NUMBER} - ${MAX_NUMBER}).`);
 
       // When player wins
     } else if (guessNumber === secretNumber) {
