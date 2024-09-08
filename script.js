@@ -66,6 +66,7 @@ document.querySelector(".check").addEventListener("click", function () {
       } else {
         displayMessage("💥 You lost the game!");
         displayScore(0);
+        changeStyles("#b30000");
       }
     }
   }
