@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const MAX_SCORE = 20;
+const MAX_SCORE = 10;
 const MIN_NUMBER = 1;
 const MAX_NUMBER = 20;
 
@@ -13,28 +13,28 @@ let score = MAX_SCORE;
 let highScore = 0;
 
 const displayMessage = function (message) {
-  document.querySelector('.message').textContent = message;
+  document.querySelector(".message").textContent = message;
 };
 
 const displaySecretNumber = function (secretNumber) {
-  document.querySelector('.number').textContent = secretNumber;
+  document.querySelector(".number").textContent = secretNumber;
 };
 
 const displayScore = function (score) {
-  document.querySelector('.score').textContent = score;
+  document.querySelector(".score").textContent = score;
 };
 
 const changeStyles = function (backgroundColor, width) {
-  document.querySelector('body').style.backgroundColor = backgroundColor;
-  document.querySelector('.number').style.width = width;
+  document.querySelector("body").style.backgroundColor = backgroundColor;
+  document.querySelector(".number").style.width = width;
 };
 
-document.querySelector('.check').addEventListener('click', function () {
-  const guess = document.querySelector('.guess').value.trim();
+document.querySelector(".check").addEventListener("click", function () {
+  const guess = document.querySelector(".guess").value.trim();
 
   // When there is no input (empty string)
-  if (guess === '') {
-    displayMessage('⛔️ No number!');
+  if (guess === "") {
+    displayMessage("⛔️ No number!");
   } else {
     // Convert the input to a number after the empty check
     const guessNumber = Number(guess);
@@ -45,26 +45,26 @@ document.querySelector('.check').addEventListener('click', function () {
 
       // When player wins
     } else if (guessNumber === secretNumber) {
-      displayMessage('🎉 Correct Number!');
+      displayMessage("🎉 Correct Number!");
       displaySecretNumber(secretNumber);
 
-      changeStyles('#60b347', '30rem');
+      changeStyles("#60b347", "30rem");
 
       if (score > highScore) {
         highScore = score;
-        document.querySelector('.highscore').textContent = highScore;
+        document.querySelector(".highscore").textContent = highScore;
       }
 
       // When guess is wrong
     } else {
       if (score > 1) {
         displayMessage(
-          guessNumber > secretNumber ? '📈 Too high!' : '📉 Too low!'
+          guessNumber > secretNumber ? "📈 Too high!" : "📉 Too low!"
         );
         score--;
         displayScore(score);
       } else {
-        displayMessage('💥 You lost the game!');
+        displayMessage("💥 You lost the game!");
         displayScore(0);
       }
     }
@@ -72,14 +72,14 @@ document.querySelector('.check').addEventListener('click', function () {
 });
 
 // Restart game
-document.querySelector('.again').addEventListener('click', function () {
+document.querySelector(".again").addEventListener("click", function () {
   score = MAX_SCORE;
   secretNumber = generateSecretNumber();
 
-  displayMessage('Start guessing...');
+  displayMessage("Start guessing...");
   displayScore(score);
-  displaySecretNumber('?');
-  document.querySelector('.guess').value = '';
+  displaySecretNumber("?");
+  document.querySelector(".guess").value = "";
 
-  changeStyles('#222', '15rem');
+  changeStyles("#222", "15rem");
 });
