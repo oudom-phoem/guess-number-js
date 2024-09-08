@@ -82,5 +82,5 @@ document.querySelector(".again").addEventListener("click", function () {
   displaySecretNumber("?");
   document.querySelector(".guess").value = "";
 
-  changeStyles("#222", "15rem");
+  changeStyles("#f0f0f0", "15rem");
 });
