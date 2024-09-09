@@ -2,4 +2,4 @@
 
 ## Live Demo
 
-Check out the live version of the project here: [Live Demo](https://oudom-phoem.github.io/guess-number-js/)
+Check out the live version of the project here: [Live Demo](https://guess-my-number-oudom.netlify.app/)
